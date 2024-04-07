@@ -1,0 +1,15 @@
+services:
+  php:
+    build: php-fpm
+    restart: always
+    volumes:
+        - ./php-fpm/app:/var/www
+    ports:
+        - 9000:9000
+  httpd:
+    build: httpd
+    restart: always
+    volumes:
+        - ./httpd/app:/var/www/html
+    ports:
+        - 80:80
